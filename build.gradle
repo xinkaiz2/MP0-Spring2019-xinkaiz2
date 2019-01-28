@@ -35,15 +35,6 @@ task copyFiles << {
         into '.idea'
     }
 }
-allprojects {
-    afterEvaluate {
-        it.tasks.each {
-            if (it != rootProject.tasks.copyFiles) {
-                it.finalizedBy rootProject.tasks.copyFiles
-            }
-        }
-    }
-}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
