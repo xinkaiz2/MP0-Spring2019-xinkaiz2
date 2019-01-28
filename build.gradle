@@ -22,17 +22,19 @@ allprojects {
     }
 }
 task copyFiles << {
-    copy {
-        from '.preserve/runConfigurations'
-        into '.idea/runConfigurations'
-    }
-    copy {
-        from '.preserve/inspectionProfiles'
-        into '.idea/inspectionProfiles'
-    }
-    copy {
-        from '.preserve/checkstyle-idea.xml'
-        into '.idea'
+    if (file('.idea').exists()) {
+        copy {
+            from '.preserve/runConfigurations'
+            into '.idea/runConfigurations'
+        }
+        copy {
+            from '.preserve/inspectionProfiles'
+            into '.idea/inspectionProfiles'
+        }
+        copy {
+            from '.preserve/checkstyle-idea.xml'
+            into '.idea'
+        }
     }
 }
 task clean(type: Delete) {
