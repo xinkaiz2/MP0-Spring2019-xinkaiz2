@@ -48,7 +48,7 @@ dependencies {
 }
 
 gradle.projectsEvaluated {
-    preBuild.finalizedBy(rootProject.tasks.copyFiles)
+    preBuild.dependsOn(rootProject.tasks.copyFiles)
 }
 
 
