@@ -6,6 +6,7 @@ grading:
   timeout: PT5M
   run: "docker run -m 1GB --cpus=1.0 --network none -v {{ gradeDir }}:/base cs125/mp0-spring2019-grader -Pgrade.capture -Pgrade.reporting.file=grade.json"
   ignoreOutput:
+    - "^WARNING: Your kernel does not support swap limit capabilities or the cgroup is not mounted.*"
     - "^To honour the JVM settings for this build.*"
     - "^Daemon will be stopped at the end of the build.*"
     - "^> Configure.*"
@@ -18,7 +19,6 @@ scoring:
   selectors:
     - checkstyle
     - test
-forceCommitAfterPoints: true
 vcs:
   git: true
 students:
@@ -33,7 +33,7 @@ reporting:
   post: "https://cs125-reporting.cs.illinois.edu/progress"
 notes:
   "Note that the maximum local grade is 90/100. 10 points will be provided
-  during official grading if you have submitted code that earns at least 40
+  during official grading if you have submitted code that earns at least 30
   points by Friday 2/1/2019 at 5PM."
 checkstyle:
   name: "checkstyle Tests"
