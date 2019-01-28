@@ -19,6 +19,7 @@ scoring:
   selectors:
     - checkstyle
     - test
+forceCommitAfterPoints: true
 vcs:
   git: true
 students:
