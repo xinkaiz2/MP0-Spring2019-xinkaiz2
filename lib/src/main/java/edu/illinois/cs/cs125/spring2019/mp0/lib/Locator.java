@@ -20,6 +20,7 @@ public class Locator {
     /** Maximum valid longitude. */
     public static final double MAX_LONGITUDE = 180.0;
 
+    /** Minimum valid longitude. */
     public static final double MIN_LONGITUDE = -180.0;
 
     /** Random number generator for use by this class. */
