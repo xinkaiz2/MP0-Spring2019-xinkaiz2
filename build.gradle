@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         classpath 'org.eclipse.jgit:org.eclipse.jgit:5.2.1.201812262042-r'
-        classpath 'com.github.cs125-illinois:gradlegrader:0.13.0'
+        classpath 'com.github.cs125-illinois:gradlegrader:0.13.4'
         classpath 'com.android.tools.build:gradle:3.3.0'
     }
 }
@@ -54,7 +54,6 @@ task checkstyleMain(type: Checkstyle) {
     ignoreFailures = true
 }
 
-tasks.grade.dependsOn('checkstyleMain')
 defaultTasks 'grade'
 
 // vim: ts=4:sw=4:et:ft=groovy

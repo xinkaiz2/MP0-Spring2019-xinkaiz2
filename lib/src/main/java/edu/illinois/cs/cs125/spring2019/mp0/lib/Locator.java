@@ -47,7 +47,15 @@ public class Locator {
      */
     public static int farthestNorth(final double[] latitudes, final double[] longitudes,
                                     final boolean[] validLocations) {
-        return 0;
+        double max = MIN_LONGITUDE;
+        int index = -1;
+        for (int i = 0; i < latitudes.length; i++) {
+            if (validLocations[i] && latitudes[i] > max) {
+                max = latitudes[i];
+                index = i;
+            }
+        }
+        return index;
     }
 
     /**
