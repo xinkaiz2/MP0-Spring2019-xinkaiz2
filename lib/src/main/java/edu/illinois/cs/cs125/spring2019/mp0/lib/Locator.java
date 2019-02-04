@@ -75,6 +75,7 @@ public class Locator {
     public static boolean beenHere(final int currentIndex,
                             final double[] latitudes, final double[] longitudes,
                             final boolean[] validLocations) {
+
         return false;
     }
 
@@ -104,6 +105,24 @@ public class Locator {
     public static double[] nextRandomLocation(final double currentLatitude, final double currentLongitude,
                                        final double transitionProbability,
                                        final double latitudeChange, final double longitudeChange) {
-        return new double[] {0.0, 0.0};
+        double latitudeAfter = currentLatitude;
+        double longitudeAfter = currentLongitude;
+        if (Math. random() < transitionProbability) {
+            latitudeAfter = currentLatitude + latitudeChange;
+            longitudeAfter = currentLongitude + longitudeChange;
+        }
+        if (latitudeAfter > 90.0) {
+            latitudeAfter = 90.0;
+        }
+        if (latitudeAfter < -90.0) {
+            latitudeAfter = -90.0;
+        }
+        if (longitudeAfter > 180.0) {
+            longitudeAfter = 180.0;
+        }
+        if (longitudeAfter < -180.0) {
+            longitudeAfter = -180.0
+        }
+        return new double[] {latitudeAfter, longitudeAfter};
     }
 }
