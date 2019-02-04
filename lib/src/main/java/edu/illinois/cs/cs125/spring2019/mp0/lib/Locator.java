@@ -107,21 +107,21 @@ public class Locator {
                                        final double latitudeChange, final double longitudeChange) {
         double latitudeAfter = currentLatitude;
         double longitudeAfter = currentLongitude;
-        if (Math. random() < transitionProbability) {
+        if (Math.random() < transitionProbability) {
             latitudeAfter = currentLatitude + latitudeChange;
             longitudeAfter = currentLongitude + longitudeChange;
         }
-        if (latitudeAfter > 90.0) {
-            latitudeAfter = 90.0;
+        if (latitudeAfter > MAX_LATITUDE) {
+            latitudeAfter = MAX_LATITUDE;
         }
-        if (latitudeAfter < -90.0) {
-            latitudeAfter = -90.0;
+        if (latitudeAfter < MIN_LATITUDE) {
+            latitudeAfter = MIN_LATITUDE;
         }
-        if (longitudeAfter > 180.0) {
-            longitudeAfter = 180.0;
+        if (longitudeAfter > MAX_LONGITUDE) {
+            longitudeAfter = MAX_LONGITUDE;
         }
-        if (longitudeAfter < -180.0) {
-            longitudeAfter = -180.0
+        if (longitudeAfter < MIN_LONGITUDE) {
+            longitudeAfter = MIN_LONGITUDE;
         }
         return new double[] {latitudeAfter, longitudeAfter};
     }
