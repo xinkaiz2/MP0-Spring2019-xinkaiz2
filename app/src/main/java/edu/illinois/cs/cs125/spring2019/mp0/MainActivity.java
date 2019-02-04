@@ -316,7 +316,9 @@ public final class MainActivity extends FragmentActivity implements OnMapReadyCa
             enableOrDisableLocation(setEnabled);
         });
 
-        ((Button) findViewById(R.id.center)).setOnClickListener(v->{centerMap();});
+        ((Button) findViewById(R.id.center)).setOnClickListener(v -> {
+            centerMap();
+        });
 
         ((Switch) findViewById(R.id.wander)).setOnCheckedChangeListener((v, shouldWander) -> {
             /*
